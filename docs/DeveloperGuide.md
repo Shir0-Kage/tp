@@ -302,8 +302,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | home baker                                           | record a concise seasonal pre-order summary in a customer’s profile               | keep the order connected to the correct customer                    |
 | `* * *`  | home baker                                           | update a customer’s current pre-order requirements                                | record later changes accurately                                     |
 | `* * *`  | home baker preparing an order                        | view its requirements together with the customer’s contact and address details    | avoid searching in separate places                                  |
-| `* * *`  | home baker                                           | record a customer’s fulfilment status                                             | know whether their order is pending, prepared, or completed         |
-| `* * *`  | home baker during a busy season                      | filter customer profiles by fulfilment status                                     | focus on customers requiring the same next action                   |
+| `* * *`  | home baker                                           | record a customer’s pre-order status                                              | know whether their order is pending, prepared, or completed         |
+| `* * *`  | home baker during a busy season                      | filter customer profiles by pre-order status                                      | focus on customers requiring the same next action                   |
 | `* * *`  | home baker                                           | view only customers with active pre-orders                                        | focus on active orders without distraction from inactive contacts   |
 | `* * *`  | keyboard-oriented home baker                         | perform common customer-management tasks without using a mouse                    | work efficiently through the CLI                                    |
 | `* * *`  | home baker with a large customer base                | receive search and update results promptly                                        | keep using LeBake efficiently during peak periods                   |
@@ -416,7 +416,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User finds a customer (<u>U2. Find a customer</u>).
-2. User selects a customer and requests to record a pre-order with order details and a fulfilment status.
+2. User selects a customer and requests to record a pre-order with order details and a status.
 3. LeBake records and displays the pre-order.
 
     Use case ends.
@@ -439,15 +439,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
-**Use case: U5. Update a pre-order's fulfilment status**\
+**Use case: U5. Update a pre-order's status**\
 **System: LeBake**\
 **Actor: User**\
 **MSS**
 
-1. User requests to view pre-orders with a chosen fulfilment status.
+1. User requests to view pre-orders with a chosen status.
 2. LeBake shows customers with pre-orders in that status.
-3. User selects a customer and requests to change the pre-order to a valid fulfilment status.
-4. LeBake updates and displays the pre-order's fulfilment status.
+3. User selects a customer and requests to change the pre-order to a valid status.
+4. LeBake updates and displays the pre-order's status.
 
     Use case ends.
 
@@ -482,14 +482,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
-* **Active order**: A pre-order whose fulfilment status is `PENDING` or `PREPARED`
+* **Active order**: A pre-order whose status is `PENDING` or `PREPARED`
 * **Archived customer**: A customer hidden from the active customer list but kept, so that it can be restored for a future seasonal campaign
 * **Customer**: A person whose contact and delivery details are stored in LeBake, represented by the `Person` class in the code
 * **Duplicate customer**: A customer with the same name as an existing customer, ignoring case and extra spaces (phone number, email and address are not compared)
-* **Fulfilment status**: The stage a pre-order has reached, which is `PENDING` (recorded but not ready), `PREPARED` (ready for collection or delivery), or `COMPLETED` (collected or delivered)
 * **Mainstream OS**: Windows, Linux, Unix, or macOS
 * **Postal area**: A group of nearby addresses that share the same leading digits of their postal code, used to group deliveries
 * **Pre-order**: An order placed in advance for a later collection or delivery, with each customer having at most one current pre-order
+* **Pre-order status**: The stage a pre-order has reached, which is `PENDING` (recorded but not ready), `PREPARED` (ready for collection or delivery), or `COMPLETED` (collected or delivered), represented by the `PreorderStatus` enum in the code
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 * **Seasonal campaign**: A period of high order demand tied to an occasion, such as Chinese New Year or Christmas
 
